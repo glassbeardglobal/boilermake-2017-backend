@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 
 var userGoalSchema = new mongoose.Schema({
   goalName: { type: String, required: true },
-  tokenURL: { type: String, required: true } 
+  tokenURL: { type: String, required: true },
+  startDate: { type: Date, default: Date.now }
 });
 
 
