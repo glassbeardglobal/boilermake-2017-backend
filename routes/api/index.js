@@ -19,7 +19,14 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.post('/login', function(req, res, next) {
+    res.json({
+        "success": true
+    });
+});
+
 router.use('/users', require('./users'));
+router.use('/goals', require('./goals'));
 
 module.exports = router;
 

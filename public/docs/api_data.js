@@ -1,0 +1,458 @@
+define({ "api": [
+  {
+    "type": "post",
+    "url": "/api/billing",
+    "title": "Billing",
+    "name": "PostBilling",
+    "group": "Billing",
+    "description": "<p>This path allows a user to set their stripe token</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "stripeToken",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true,\n  \"message\":\"API Root\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/billing.js",
+    "groupTitle": "Billing"
+  },
+  {
+    "type": "get",
+    "url": "/api",
+    "title": "Root",
+    "name": "GetAPIRoot",
+    "group": "Index",
+    "description": "<p>This path gets the root of the API</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true,\n  \"message\":\"API Root\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/index.js",
+    "groupTitle": "Index"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/registertoken",
+    "title": "Register a device token",
+    "name": "PostRegisterToken",
+    "group": "Push",
+    "description": "<p>This path registers a token for a given user</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "deviceToken",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/push.js",
+    "groupTitle": "Push"
+  },
+  {
+    "type": "delete",
+    "url": "/api/users/:id",
+    "title": "Delete Users by ID",
+    "name": "DeleteUsersID",
+    "group": "User",
+    "description": "<p>This path Deletes a user by passing in the ID to the url</p>",
+    "examples": [
+      {
+        "title": "Example Path:",
+        "content": "/api/users/583003f9284d9222bf802777",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/users",
+    "title": "Get All Users",
+    "name": "GetUsers",
+    "group": "User",
+    "description": "<p>This path gets a list of all users</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "[...]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/users/:id",
+    "title": "Get Users by ID",
+    "name": "GetUsersID",
+    "group": "User",
+    "description": "<p>This path gets a user by passing in the ID to the url</p>",
+    "examples": [
+      {
+        "title": "Example Path:",
+        "content": "/api/users/583003f9284d9222bf802777",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true,\n  \"user\": {\n    \"_id\": \"583003f9284d9222bf802777\",\n    \"updatedAt\": \"2016-11-19T14:05:27.455Z\",\n    \"createdAt\": \"2016-11-19T07:49:13.871Z\",\n    \"name\": \"Radue Bhangra\",\n    \"email\": \"rbhang3@gmail.com\",\n    \"password\": \"foobar\",\n    \"__v\": 2,\n    \"browsingHistory\": [\n      {\n        \"websiteName\": \"google.com\",\n        \"blacklisted\": false,\n        \"startTime\": \"2016-11-19T14:04:55.957Z\",\n        \"_id\": \"58305c07fb3d1c3f58d68ba2\"\n      },\n      {\n        \"websiteName\": \"reddit.com\",\n        \"blacklisted\": true,\n        \"startTime\": \"2016-11-19T14:05:27.453Z\",\n        \"_id\": \"58305c27fb3d1c3f58d68ba3\"\n      }\n    ],\n    \"blacklisted\": {\n      \"reddit\": true,\n      \"bms\": true,\n      \"reddit%2Ecom\": true\n    },\n    \"twoFactorExpire\": \"2016-11-19T13:32:46.029Z\",\n    \"twoFactorCode\": \"\",\n    \"twoFactorEnabled\": false\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/addpage",
+    "title": "Add a visited page",
+    "name": "PostAddpage",
+    "group": "User",
+    "description": "<p>This path adds a page to user browsing history</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "site",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/authenticate",
+    "title": "Authenticate User",
+    "name": "PostAuthenticate",
+    "group": "User",
+    "description": "<p>This path authenticates a user</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/blacklist",
+    "title": "Blacklist a website",
+    "name": "PostBlacklist",
+    "group": "User",
+    "description": "<p>This path adds a blacklisted site to a users profile</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "site",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/blacklist",
+    "title": "Blacklist many websites",
+    "name": "PostBlacklistMany",
+    "group": "User",
+    "description": "<p>This path adds a list of blacklisted site to a users profile</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "[String]",
+            "optional": false,
+            "field": "sites",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users/insertpage",
+    "title": "Insert a visited page",
+    "name": "PostInsertpage",
+    "group": "User",
+    "description": "<p>This path inserts a page to user browsing history allowing a date</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "site",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "startTime",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/users",
+    "title": "Create User",
+    "name": "PostUsers",
+    "group": "User",
+    "description": "<p>This path creates a user from request body data</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "{\n  \"success\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./routes/api/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./public/docs/main.js",
+    "group": "_home_jj_Desktop_wildhacks_wildhacks_2016_backend_public_docs_main_js",
+    "groupTitle": "_home_jj_Desktop_wildhacks_wildhacks_2016_backend_public_docs_main_js",
+    "name": ""
+  }
+] });

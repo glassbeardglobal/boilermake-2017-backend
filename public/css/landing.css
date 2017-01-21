@@ -1,0 +1,186 @@
+body {
+	/*background-image: url('../img/rsz_mountains.jpg');*/
+    background-image: url('../img/cookie.png');
+	background-size: cover;
+    background-position: 50% 80%;
+	background-repeat: no-repeat;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.center-frame {
+	display: block;
+	margin: auto;
+	margin-top: 15vh;
+}
+
+#title {
+	text-align: center;
+	font-family: Roboto;
+	font-weight: 200;
+	color: white;
+	font-size: 100px;
+	text-shadow: 2px 2px 5px #000;
+	margin-bottom: 110px;
+}
+
+.home-btn {
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	padding: 4px 25px;
+	border-radius: 3px;
+	width: 180px;
+	background-color: #3289C7;
+	box-shadow: 2px 2px 16px #333;
+}
+
+.home-btn a {
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 20px;
+	color: white;
+}
+
+/*
+  =====================================
+  Join Form
+  =====================================
+*/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#login-modal, #signup-modal {
+    position: fixed;
+    width: 450px;
+    height: 365px;
+    top: 16%;
+    left: 50%;
+    margin-left: -225px;
+    background-color: white;
+    z-index: 3000;
+    display: none;
+}
+
+#signup-modal {
+	height: 430px;
+}
+
+.modal-content-cs {
+    margin: 15px;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-header .btn-default {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    border: none;
+}
+
+.modal-header .btn-default:hover,
+.modal-header .btn-default:focus {
+    background: transparent;
+}
+
+.modal-header h3 {
+    margin-top: 10px;
+    font-family: Roboto;
+    font-weight: 300;
+    text-align: center;
+}
+
+.modal-body .form-item {
+    width: 100%;
+}
+
+.modal-body .form-item {
+    float: left;
+}
+
+.modal-body .form-item label {
+	font-family: Roboto;
+    font-weight: 600;
+    color: #636363;
+    display: block;
+}
+
+.modal-body .form-item input {
+    border-radius: 0;
+    border: 1px solid #d1d1d1;
+    background: #f6f6f6;
+    padding: 7px;
+    margin-bottom: 14px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.modal-body input:focus {
+    border-color: #3289C7;
+}
+
+.modal-body a {
+    margin-top: 20px;
+    float: right;
+}
+
+.ring-loader {
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 30px;
+    margin-left: -50px;
+}
+
+#login-modal-done,
+#login-modal-fail,
+#signup-modal-done,
+#signup-modal-fail {
+    font-family: Roboto;
+    font-weight: 200;
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#login-form-page,
+#signup-form-page {
+    margin: auto;
+    margin-top: 60px;
+    width: 88%;
+}
+
+#login-form-page #login-submit-form,
+#signup-form-page #signup-submit-form {
+    margin: 15px 0;
+    margin-top: 10px;
+}
+
+#login-submit-form,
+#signup-submit-form {
+	border: none;
+	border-radius: 2px;
+	background-color: #3289C7;
+}
+
+#login-modal-done, #login-modal-fail,
+#signup-modal-done, #signup-modal-fail {
+	font-family: Roboto;
+	font-weight: 300;
+	text-align: center;
+}

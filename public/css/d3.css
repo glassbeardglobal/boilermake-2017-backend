@@ -1,0 +1,38 @@
+.axis--x path {
+  /display: none;
+}
+
+.line {
+  fill: none;
+  stroke: #3289c7;
+  stroke-width: 1.5px;
+}
+
+
+.bar {
+  fill: #3289c7;
+}
+
+.bar:hover {
+  fill: #2273b0;
+}
+
+.axis--x path {
+  /display: none;
+}
+
+
+
+body {
+  font: 10px sans-serif;
+}
+
+.group-tick line {
+  stroke: #000;
+}
+
+.ribbons {
+  fill-opacity: 0.67;
+}
+
+

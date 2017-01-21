@@ -1,0 +1,197 @@
+html, body {
+	height: 100%;
+}
+
+@font-face {
+    font-family: Bebas Neue;
+    src: url("../fonts/BebasNeue/BebasNeue.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    font-weight: 100;
+    src: url("../fonts/source-sans-pro/SourceSansPro-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    font-weight: 200;
+    src: url("../fonts/source-sans-pro/SourceSansPro-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    src: url("../fonts/source-sans-pro/SourceSansPro-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    src: url("../fonts/source-sans-pro/SourceSansPro-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    font-weight: 700;
+    src: url("../fonts/source-sans-pro/SourceSansPro-Bold.otf") format("opentype");
+}
+
+.navbar {
+	z-index: 100;
+	border-radius: 0;
+	margin-bottom: 0px;
+	box-shadow: 5px 0px 9px #000;
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	font-family: Roboto;
+}
+
+.navbar-default {
+	color: white;
+	background-color: #02020a;
+	border: none;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+	color: #eee;
+}
+
+.email {
+	color: #3289c7;
+}
+
+
+/*
+  ==========================
+  sidebar
+  ==========================
+*/
+
+.sidebar {
+	top: 50px;
+	z-index: 50;
+	position: fixed;
+	//height: calc(100%-50px);
+	height: 100%;
+	width: 50px;
+	background-color: #323237;
+}
+
+.ico-fa {
+	font-size: 15px;
+	display: block;
+	margin: auto;
+	margin-left: 15px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: white;
+}
+
+.ico-fa a {
+	color: white;
+}
+
+.ico-fa a:hover {
+	color: #ddd;
+}
+
+/*
+  ==========================
+  main display
+  ==========================
+*/
+
+.main {
+	z-index: 0;
+	position: absolute;
+	
+	width: 100%;
+	background-color: #f0f0f0;
+	/*background: #00abff;
+	background: -webkit-linear-gradient(left top, #00becd, #00abff);
+	background: -o-linear-gradient(bottom right, #00becd, #00abff);
+	background: -moz-linear-gradient(bottom right, #00becd, #00abff);
+	background: linear-gradient(to bottom right, #33ae9d, #2291e5);*/
+}
+
+.main-container {
+	margin-top: 75px;
+	margin-left: 75px;
+	margin-right: 25px;
+	background-color: #ff9800;
+	height: 500px;
+}
+
+.top-wrapper {
+	background-color: #ff9800;
+	height: 300px;
+}
+
+.price-tick-wrapper {
+	position: relative;
+	top: 68px;
+	margin: auto;
+}
+
+#price-ticker {
+	text-align: center;
+	color: white;
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 36px;
+}
+
+#sub-price-ticker {
+	text-align: center;
+	color: black;
+	font-family: Roboto;
+	font-weight: 300;
+}
+
+#main-line {
+	width: 88vw;
+	height: 400px;
+	background-color: white;
+	z-index: 100;
+	margin: auto;
+	position: relative;
+	top: -150px;
+	left: 7.5vw;
+	box-shadow: 3px 3px 14px #333;
+}
+
+#chord-diagram {
+	width: 52vw;
+	height: 52vw;
+	background-color: white;
+	z-index: 100;
+	margin: auto;
+	position: relative;
+	top: -100px;
+	left: 7.5vw;
+	box-shadow: 3px 3px 14px #333;
+	margin-bottom: 11px;
+}
+
+#bar-svg {
+	width: 32vw;
+	height: 52vw;
+	background-color: white;
+	z-index: 100;
+	margin: auto;
+	position: relative;
+	top: -100px;
+	right: -11.3vw;
+	box-shadow: 3px 3px 14px #333;
+	margin-bottom: 11px;
+}
