@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var router = express.Router();
 
 var User = require('../../models/User');
+var Goal = require('../../models/Goal');
+
 /**
  * @api {get} /api/users Get All Users
  * @apiName GetUsers
@@ -44,6 +46,21 @@ router.post('/', (req, res, next) => {
     });
 });
 
+router.get('/allhistory', function(req, res, next) {
+    User.findById(req.query.id).populate('goals').exec(function(err, user) {
+        if (err)
+            return next(err);
+
+        var hist = [];
+        user.goals.forEach(function(d) {
+            hist.extend(d);
+        });
+        res.json({
+            "success": true,
+            "history": hist
+        });
+    });
+});
 
 router.get('/:id', (req, res, next) => {
     User.findById(req.params.id, (err, doc) => {

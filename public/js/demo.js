@@ -7,12 +7,6 @@ $(document).ready(function() {
   var data = $.ajax({
     url: "api/users/" + userid,
   }).done(parseData);
-
-  var socket = io();
-  socket.on('increment price', function() {
-    total += costPerPage;
-    renderPrice("#price-ticker", total);
-  });
 });
 
 function renderPrice(selector, price) {
