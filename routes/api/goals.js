@@ -69,7 +69,7 @@ router.get('/fulfilled/:id', function(req, res, next) {
 router.get('/bill/:id', function(req, res, next) {
   Goal.findById(req.params.id, function(err, goal) {
     var start = goal.createdAt;
-    let groupedResults = _.groupBy(goal.history, (result) => moment(result, 'DD/MM/YYYY').startOf('isoWeek'));
+    var groupedResults = _.groupBy(goal.history, (result) => moment(result, 'DD/MM/YYYY').startOf('isoWeek'));
     var now = new Date();
     var weeks = Math.round((now-start) / 604800000);
     var freq = goals.frequency;
@@ -96,6 +96,17 @@ router.get('/:id', function(req, res, next) {
       "goal": goal
     });
   });
+});
+
+router.delete('/:id', function(req, res, next) {
+    Goal.findById(req.params.id).remove((err, goal) => {
+        if (err)
+            return next(err);
+        res.json({
+            "success": true,
+            "deleted": goal
+        });
+    });
 });
 
 module.exports = router;
