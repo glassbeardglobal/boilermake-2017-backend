@@ -13,7 +13,7 @@ var User = require('../../models/User');
  * [...]
 */
 router.get('/', (req, res, next) => {
-    User.find((err, doc) {
+    User.find((err, doc) => {
         if (err)
             return next(err);
         res.json(doc);

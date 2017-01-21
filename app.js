@@ -20,8 +20,8 @@ mongoose.connect(connection, function(err) {
   }
 });
 
-var routes = require('./routes/index/');
-var api = require('./routes/api/');
+var routes = require('./routes/index');
+var api = require('./routes/api');
 
 var app = express();
 
