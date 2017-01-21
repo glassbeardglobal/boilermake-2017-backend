@@ -1,6 +1,5 @@
 body {
-	/*background-image: url('../img/rsz_mountains.jpg');*/
-    background-image: url('../img/cookie.png');
+    background-image: url('../img/bmbg.png');
 	background-size: cover;
     background-position: 50% 80%;
 	background-repeat: no-repeat;
@@ -33,8 +32,8 @@ body {
 	padding: 4px 25px;
 	border-radius: 3px;
 	width: 180px;
-	background-color: #3289C7;
-	box-shadow: 2px 2px 16px #333;
+	background-color: #ef6c00;
+	box-shadow: 2px 2px 3px #5e5344;
 }
 
 .home-btn a {
@@ -175,7 +174,7 @@ body {
 #signup-submit-form {
 	border: none;
 	border-radius: 2px;
-	background-color: #3289C7;
+	background-color: #ef6c00;
 }
 
 #login-modal-done, #login-modal-fail,

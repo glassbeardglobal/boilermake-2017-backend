@@ -44,6 +44,7 @@ function submitPageForm() {
     window.setTimeout(function() {
       loader.children('.ring-loader').addClass('hidden');
       $('#login-modal-done').removeClass('hidden');
+      console.log('REACHED');
       window.location.href = '/dashboard';
     }, 500);
     
