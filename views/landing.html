@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Moves</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/vis.css">
+        <link rel="stylesheet" href="/css/landing.css">
+        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="center-frame">
+            <h1 id="title">Moves</h1>
+            <div id="signup-btn" class="home-btn"><a>SIGN UP</a></div>
+            <div id="login-btn" class="home-btn"><a>LOG IN</a></div>
+            <div class="overlay hidden"></div>
+        </div>
+
+        <div id="login-modal">
+            <div class="modal-content-cs">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-default close-form" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                    <h3>Login</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" action="/api/users/authenticate" method="post" accept-charset="UTF-8">
+                        <div class="form-fields clearfix">
+                            <div class="form-item">
+                                <label>Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="form-item">
+                                <label>Password</label>
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+
+                        <a id="login-submit-form" class="btn btn-primary">SUBMIT</a>
+                    </form>
+
+                    <div class="form-loader hidden">
+                        <img class="ring-loader" src="img/ring.svg">
+                        <h2 id="login-modal-done" class="hidden">Redirecting to Dashboard</h2>
+                        <h2 id="login-modal-fail" class="hidden">Incorrect login information</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="signup-modal">
+            <div class="modal-content-cs">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-default close-form" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                    <h3>Sign Up</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="signup-form" action="/api/users/authenticate" method="post" accept-charset="UTF-8">
+                        <div class="form-fields clearfix">
+                            <div class="form-item">
+                                <label>Name</label>
+                                <input type="text" name="name">
+                            </div>
+                            <div class="form-item">
+                                <label>Email</label>
+                                <input type="text" name="email">
+                            </div>
+                            <div class="form-item">
+                                <label>Password</label>
+                                <input type="password" name="password">
+                            </div>
+                        </div>
+
+                        <a id="signup-submit-form" class="btn btn-primary">SUBMIT</a>
+                    </form>
+
+                    <div class="form-loader hidden">
+                        <img class="ring-loader" src="img/ring.svg">
+                        <div id="signup-modal-done" class="hidden">
+                            <h2>Thanks for registering!</h2>
+                            <h4>Please log in</h4>
+                        </div>
+                        <h2 id="signup-modal-fail" class="hidden">An error has occured</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="/js/plugins.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="/js/landing.js"></script>
+        <script src="/js/js.cookie.js"></script>
+        <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
+    </body>
+</html>
