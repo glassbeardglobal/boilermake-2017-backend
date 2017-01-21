@@ -1,19 +1,12 @@
 var mongoose = require('mongoose');
 
 
-var UserGoalSchema = new mongoose.Schema({
-  goalName: { type: String, required: true },
-  tokenURL: { type: String, required: true },
-  startDate: { type: Date, default: Date.now }
-});
-
-
 var UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   deviceToken: { type: String },
-  goals: { type: Object, default: {} },
+  goals: { type: Array, default: [] },
   stripeID: { type: String },
   runningCost: { type: Number, default: 0 },
   donated: { type: Number, default: 0 },
