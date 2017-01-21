@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var connection =  'mongodb://dbadmin:dbpassword@ds117859.mlab.com:17859/boilermake';
+var connection = 'mongodb://dbadmin:dbpassword@ds117859.mlab.com:17859/boilermake';
 if (process.env.NODE_ENV === 'development') {
   console.log("Connecting to local database...");
   connection = 'mongodb://localhost/bm';
@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.json({
       message: err.message,
       error: err
     });
@@ -63,7 +63,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
     error: {}
   });
