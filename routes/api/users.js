@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 
 var router = express.Router();
 
-var User = require('...');
-
+var User = require('../../models/User');
 /**
  * @api {get} /api/users Get All Users
  * @apiName GetUsers
