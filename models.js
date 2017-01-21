@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-var userGoalSchema = new mongoose.Schema({
+var UserGoalSchema = new mongoose.Schema({
   goalName: { type: String, required: true },
   tokenURL: { type: String, required: true },
   startDate: { type: Date, default: Date.now }
@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   deviceToken: { type: String },
-  goals: { type: Object, default: {}},
+  goals: { type: Object, default: {} },
   stripeID: { type: String },
   runningCost: { type: Number, default: 0 },
   donated: { type: Number, default: 0 },
