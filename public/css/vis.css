@@ -170,9 +170,9 @@ html, body {
 	box-shadow: 3px 3px 14px #333;
 }
 
-#chord-diagram {
-	width: 52vw;
-	height: 52vw;
+#line-graph {
+	width: 58vw;
+	height: 35vw;
 	background-color: white;
 	z-index: 100;
 	margin: auto;
@@ -180,12 +180,12 @@ html, body {
 	top: -100px;
 	left: 7.5vw;
 	box-shadow: 3px 3px 14px #333;
-	margin-bottom: 11px;
+	margin-bottom: -51px;
 }
 
 #bar-svg {
-	width: 32vw;
-	height: 52vw;
+	width: 26vw;
+	height: 35vw;
 	background-color: white;
 	z-index: 100;
 	margin: auto;
@@ -193,5 +193,5 @@ html, body {
 	top: -100px;
 	right: -11.3vw;
 	box-shadow: 3px 3px 14px #333;
-	margin-bottom: 11px;
+	margin-bottom: -51px;
 }

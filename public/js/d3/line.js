@@ -1,12 +1,11 @@
-function renderMain(data) {
-  console.log(data);
+function renderLine(data) {
   var width;
   var height;
   var margin = { top: 20, right: 20, bottom: 30, left: 50 };
 
-  var svg = d3.select("#main-line");
-  width = $("#main-line").width() - margin.left - margin.right;
-  height = $("#main-line").height() - margin.top - margin.bottom;
+  var svg = d3.select("#line-graph");
+  width = $("#line-graph").width() - margin.left - margin.right;
+  height = $("#line-graph").height() - margin.top - margin.bottom;
   var g = svg.append("g").attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
   var x = d3.scaleTime()
@@ -18,10 +17,10 @@ function renderMain(data) {
   var line = d3.line()
     .curve(d3.curveBundle.beta(0.7))
     .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.val); });
+    .y(function(d) { return y(d.cost / 100); });
 
   x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain(d3.extent(data, function(d) { return d.val; }));
+  y.domain(d3.extent(data, function(d) { return d.cost / 100; }));
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -30,7 +29,7 @@ function renderMain(data) {
 
   g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
+      .call(d3.axisLeft(y).tickFormat(d3.format(".2f")))
     .append("text")
       .attr("fill", "#000")
       .attr("transform", "rotate(-90)")

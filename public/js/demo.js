@@ -1,9 +1,10 @@
 var total = 0;
 var hist;
 var costPerFail = 300;
+var userid;
 
 $(document).ready(function() {
-  var userid = Cookies.get('userid');
+  userid = Cookies.get('userid');
   var data = $.ajax({
     url: "api/users/" + userid + "/allhistory",
   }).done(parseData);
@@ -20,6 +21,12 @@ function sameDay(a, b) {
   return a.setHours(0,0,0,0) == b.setHours(0,0,0,0);
 }
 
+function addDays(d, days) {
+  var dat = new Date(d.valueOf());
+  dat.setDate(dat.getDate() + days);
+  return dat;
+}
+
 function parseData(d) {
   var user = d.user;
   var history = d.history;
@@ -31,6 +38,7 @@ function parseData(d) {
   });*/
   renderPrice("#price-ticker", total);
   renderPrice("#sub-price-ticker", user.costPerFail);
+  costPerFail = user.costPerFail;
 
   history.sort(function(a, b) {
     return new Date(a) > new Date(b);
@@ -52,18 +60,49 @@ function parseData(d) {
       });
   });
 
-  var hg = history.map(function(d) {
-    return new Date(d);
-  });
-  var groupedResults = _.groupBy(hg, function(result) {
-    return moment(result, 'DD/MM/YYYY').startOf('isoWeek')
-  });
+  var hg = []
 
-  console.log(groupedResults);
+  grouped.forEach(function(d, i) {
+    if (i == 0)
+      return;
+    hg.push(new Date(d.date));
+  });
+  var weekly = _.groupBy(hg, function(result) {
+    return moment(result, 'DD/MM/YYYY').startOf('week')
+  });
+  var lineDat = [{ date: start, cost: 0 }];
+  for (var k in weekly) {
+    lineDat.push({
+      date: addDays(new Date(k), 6),
+      cost: Math.max(0, (5 - weekly[k].length) * costPerFail)
+    });
+  }
+  lineDat.sort(function(a, b) {
+    return a > b;
+  });
+  var tot = 0;
+  for (var i = 0; i < lineDat.length; i++) {
+    tot += lineDat[i].cost;
+    lineDat[i].cost = tot;
+  }
+  renderPrice("#price-ticker", lineDat[lineDat.length-1].cost);
 
-  // Function to Accumulate cost here
+  var data2 = $.ajax({
+    url: "api/users/" + userid + "/sephistory",
+  }).done(function(sd) {
+    var bars = sd.user.goals.map(function(d) {
+      return {
+        name: d.name,
+        hlen: d.history.length
+      };
+    });
+    bars.sort(function(a, b) {
+      return a.hlen < b.hlen;
+    })
+    console.log(bars);
+    renderBars(bars);
+  });
 
   renderCalendar(grouped);
-  // renderChord(chords, inverseMap);
-  // renderBars(freqArr);
+  renderLine(lineDat);
 }
