@@ -11,4 +11,8 @@ router.get('/dashboard', function(req, res, next) {
   res.sendFile('views/dashboard.html', { root: path.join(__dirname, '..')});
 });
 
+router.get('/charities', function(req, res, next) {
+  res.sendFile('views/charities.html', { root: path.join(__dirname, '..')});
+});
+
 module.exports = router;

@@ -54,8 +54,13 @@ html, body {
 	border: none;
 }
 
-.navbar-default .navbar-brand,
+.navbar-default .navbar-brand {
+	font-size: 15px;
+	color: white;
+}
+
 .navbar-default .navbar-nav > li > a {
+	font-size: 11px;
 	color: white;
 }
 
@@ -194,4 +199,40 @@ html, body {
 	right: -11.3vw;
 	box-shadow: 3px 3px 14px #333;
 	margin-bottom: -51px;
+}
+
+.charity-wrapper {
+	margin-top: -243px;
+	margin-left: 65px;
+}
+
+.charity-frame {
+	width: 97%;
+	height: 23vw;
+	background-color: white;
+	z-index: 100;
+	margin: auto;
+	margin-top: 27px;
+	margin-bottom: 27px;
+	box-shadow: 3px 3px 14px #333;
+	display: inline-block;
+	overflow: none;
+	position: relative;
+}
+
+.charity-frame img {
+	height: 100%;
+	width: 100%;
+}
+
+.charity-frame .c-lower {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-left: 50px;
+	margin: auto;
+	width: 100%;
+	color: white;
+	background: rgba(0,0,0,0.6);
 }

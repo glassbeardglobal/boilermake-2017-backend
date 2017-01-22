@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Moves</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/vis.css">
+    <link rel="stylesheet" href="/css/d3.css">
+    <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/dashboard">Moves</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/charities">Charities</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Logged in as <span class="email">rbhang@gmail.com</span></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div class="sidebar">
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+      </div>
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-asterisk" aria-hidden="true"></i></a>
+      </div>
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+      </div>
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-pie-chart" aria-hidden="true"></i></a>
+      </div>
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-feed" aria-hidden="true"></i></a>
+      </div>
+      <div class="ico-fa">
+        <a href="#"><i class="fa fa-code-fork" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="top-wrapper">
+      </div>
+      <div class="charity-wrapper">
+        <div class="col-md-6">
+          <div class="charity-frame">
+            <a href="http://www.child-aid.org">
+            <img src="http://www.guatemalavillagepartners.org/images/stories/child-aid-logo.jpg"
+               alt="Child Aid">
+            </a>
+            <div class="c-lower">
+              <h3>Child Aid</h3>
+            </div>
+          </div>
+
+          <div class="charity-frame">
+            <a href="http://www.map.org">
+                <img src="http://vibrantvillage.org/sites/default/files/MAP%20Logo%20Approved.png"
+                     alt="Map International">
+            </a>
+            <div class="c-lower">
+              <h3>Map International</h3>
+            </div>
+          </div>
+
+          <div class="charity-frame">
+            <a href="https://mfkhaiti.org/">
+                <img src="http://ifpc.com/wp-content/uploads/2014/02/mfk-571x240.jpg" 
+                     alt="Meds & Food for Kids">
+            </a>
+            <div class="c-lower">
+              <h3>Asha for Education</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="charity-frame">
+            <a href="http://www.directrelief.org">
+                <img src="http://connectconsulting.biz/wp-content/uploads/2016/09/direct-relief-new.png" alt="Direct Relief">
+            </a>
+            <div class="c-lower">
+              <h3>Direct Relief</h3>
+            </div>
+          </div>
+
+          <div class="charity-frame">
+            <img src="http://mobileapps4charity.com/wp-content/uploads/2013/10/Charity-Outreach.png"
+                 alt="Charity">
+          </div>
+
+          <div class="charity-frame">
+            <a href="https://www.cambodianchildrensfund.org/">
+                <img src="http://cdn.greatnonprofits.org/images/logos/CCFLogo-Textlogocopy.jpg"
+                     alt="Cambodian Children's Fund">
+            </a>
+            <div class="c-lower">
+              <h3>Cambodian Children's Fund</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/js.cookie.js"></script>
+  </body>
+</html>
