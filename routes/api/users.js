@@ -6,6 +6,13 @@ var router = express.Router();
 var User = require('../../models/User');
 var Goal = require('../../models/Goal');
 
+var apikey = 'db57ff205e4192ecdd7185e565af6c60';
+
+var request = require('superagent');
+request.get('http://api.reimaginebanking.com/atms?key='+apikey).end(function(res){
+    //do something?
+});
+
 /**
  * @api {get} /api/users Get All Users
  * @apiName GetUsers
