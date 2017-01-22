@@ -4,14 +4,14 @@ import datetime
 import os
 from bson.objectid import ObjectId
 
-userId = '5883c6e9a6f5a909b9dcf6e8'
-randArr = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+userId = '5883849c3f881349307350b1'
+randArr = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
 today = datetime.datetime.now()
 
-goal = { 'name': 'Gym', 
-         'frequency': 5,
+goal = { 'name': 'Class', 
+         'frequency': 3,
          'history': [],
-         'costPerFail': 3,
+         'costPerFail': 300,
          'userId': ObjectId(userId) }
 
 baseUrl = 'http://localhost:3000/'

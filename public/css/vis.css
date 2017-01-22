@@ -158,12 +158,12 @@ html, body {
 	font-weight: 300;
 }
 
-#main-line {
+#calendar {
 	width: 88vw;
-	height: 400px;
+	height: 357px;
 	background-color: white;
 	z-index: 100;
-	margin: auto;
+	/* margin: auto; */
 	position: relative;
 	top: -150px;
 	left: 7.5vw;

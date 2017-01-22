@@ -46,18 +46,43 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.get('/allhistory', function(req, res, next) {
-    User.findById(req.query.id).populate('goals').exec(function(err, user) {
+router.get('/:id/allhistory', function(req, res, next) {
+    User.findById(req.params.id).populate('goals').exec(function(err, user) {
         if (err)
             return next(err);
+        if (user == null)
+            return next({
+                "success": false,
+                "status": 404,
+                "message": "User not found"
+            });
 
         var hist = [];
         user.goals.forEach(function(d) {
-            hist.extend(d);
+            hist = hist.concat(d.history);
         });
         res.json({
             "success": true,
-            "history": hist
+            "history": hist,
+            "user": user
+        });
+    });
+});
+
+router.get('/:id/sephistory', function(req, res, next) {
+    User.findById(req.params.id).populate('goals').exec(function(err, user) {
+        if (err)
+            return next(err);
+        if (user == null)
+            return next({
+                "success": false,
+                "status": 404,
+                "message": "User not found"
+            });
+        
+        res.json({
+            "success": true,
+            "user": user
         });
     });
 });

@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/vis.css">
         <link rel="stylesheet" href="/css/d3.css">
+        <link rel="stylesheet" href="/css/calendar.css">
         <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -80,7 +81,7 @@
         </div>
 
         <div class="svg-wrapper">
-            <svg id="main-line"></svg>
+            <div id="calendar"></div>
             <svg id="chord-diagram"></svg>
             <svg id="bar-svg"></svg>
         </div>
@@ -92,9 +93,11 @@
         <script src="/js/js.cookie.js"></script>
         <script src="/js/demo.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
-        <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-        <script src="/js/d3/main.js"></script>
-        <script src="/js/d3/chord.js"></script>
+        <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
+        <script src="/js/d3/calendar.js"></script>
+        <!--<script src="/js/d3/chord.js"></script>
         <script src="/js/d3/bars.js"></script>-->
     </body>
 </html>

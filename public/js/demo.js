@@ -1,11 +1,11 @@
 var total = 0;
 var hist;
-var costPerPage = 60;
+var costPerFail = 300;
 
 $(document).ready(function() {
   var userid = Cookies.get('userid');
   var data = $.ajax({
-    url: "api/users/" + userid,
+    url: "api/users/" + userid + "/allhistory",
   }).done(parseData);
 });
 
@@ -16,83 +16,54 @@ function renderPrice(selector, price) {
     $(selector).text("$" + (Math.floor(price / 100) + "." + (price % 100)));
 }
 
-function parseData(d) {
-  console.log(d);
+function sameDay(a, b) {
+  return a.setHours(0,0,0,0) == b.setHours(0,0,0,0);
+}
 
+function parseData(d) {
   var user = d.user;
+  var history = d.history;
   $(".email").text(user.email);
-  hist = user.browsingHistory;
+  /*hist = user.browsingHistory;
   hist.forEach(function(h) {
     if (h.blacklisted)
-      total += user.costPerPage
-  });
+      total += user.costPerFail
+  });*/
   renderPrice("#price-ticker", total);
-  renderPrice("#sub-price-ticker", user.costPerPage);
+  renderPrice("#sub-price-ticker", user.costPerFail);
 
-  hist.sort(function(a, b) {
-    return new Date(a.startTime) > new Date(b.startTime);
+  history.sort(function(a, b) {
+    return new Date(a) > new Date(b);
   });
 
-  var aggregate = [];
-  var runner = 0;
-  hist.forEach(function(d) {
-    if (d.blacklisted)
-      runner += costPerPage;
-    aggregate.push({ date: new Date(d.startTime), val: runner/100 });
-  });
-
-  var freq = {}
-  hist.forEach(function(d) {
-    if (freq[d.websiteName] == undefined) {
-      freq[d.websiteName] = 1;
-    }
+  //var grouped = _.groupBy(history, (result) => moment(result, 'DD/MM/YYYY').startOf('isoWeek'));
+  var start = new Date(history[0]);
+  var present = new Date(history[history.length-1]);
+  var weeks = Math.round((present-start) / 604800000);
+  var grouped = [];
+  history.forEach(function(h, i) {
+    if (i != 0 && sameDay(new Date(grouped[grouped.length-1].date), new Date(h)))
+      grouped[grouped.length-1].count += 1;
     else
-      freq[d.websiteName] += 1;
-  });
-
-  var freqArr = []
-  for (var key in freq) {
-    if (freq.hasOwnProperty(key)) {
-      freqArr.push({
-        website: key,
-        val: freq[key]
+      grouped.push({
+        date: h,
+        count: 1,
+        cost: 0
       });
-    }
-  }
-  freqArr.sort(function(a, b) {
-    return a.val < b.val;
   });
 
-  var chords = [];
-  var chordMap = {};
-  var inverseMap = {};
-  var count = 0;
-  hist.forEach(function(d) {
-    if (chordMap[d.websiteName] == undefined) {
-      chordMap[d.websiteName] = count;
-      inverseMap[count] = d.websiteName;
-      count += 1
-    }
+  var hg = history.map(function(d) {
+    return new Date(d);
+  });
+  var groupedResults = _.groupBy(hg, function(result) {
+    return moment(result, 'DD/MM/YYYY').startOf('isoWeek')
   });
 
-  for (var i = 0; i < count; i++) {
-    chords.push([]);
-    for (var j = 0; j < count; j++) {
-      chords[i].push(0);
-    }
-  }
+  console.log(groupedResults);
 
-  var last;
-  hist.forEach(function(d) {
-    if (last != undefined) {
-      var i = chordMap[d.websiteName];
-      var j = chordMap[last];
-      chords[i][j] += 1;
-    }
-    last = d.websiteName;
-  });
+  // Function to Accumulate cost here
 
-  renderMain(aggregate);
-  renderChord(chords, inverseMap);
-  renderBars(freqArr);
+  renderCalendar(grouped);
+  // renderChord(chords, inverseMap);
+  // renderBars(freqArr);
 }
