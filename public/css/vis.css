@@ -55,6 +55,7 @@ html, body {
 }
 
 .navbar-default .navbar-brand {
+	font-weight: 700;
 	font-size: 15px;
 	color: white;
 }
@@ -235,4 +236,18 @@ html, body {
 	width: 100%;
 	color: white;
 	background: rgba(0,0,0,0.6);
+}
+
+.transaction-wrapper {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.balance-lead {
+	margin-top: 30px;
+	margin-bottom: 5px;
+}
+
+.balance {
+	margin-top: 0px;
 }

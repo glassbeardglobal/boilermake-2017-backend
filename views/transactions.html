@@ -9,7 +9,6 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-
         
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
         <link rel="stylesheet" href="/css/normalize.css">
@@ -73,35 +72,22 @@
             </div>
         </div>
 
-        <div class="main">
-        <!--<div class="main-container">
-            
-        </div>-->
-        <div class="top-wrapper">
-            <div class="price-tick-wrapper">
-                <h2 id="price-ticker">$0.00</h2>
-                <h5 id="sub-price-ticker">+$0.00</h5>
-            </div>
-        </div>
+        <div class="main container transaction-wrapper">
+            <div class="col-md-6">
+                <h2>Spend Summary</h2>
 
-        <div class="svg-wrapper">
-            <div id="calendar"></div>
-            <svg id="line-graph"></svg>
-            <svg id="bar-svg"></svg>
-        </div>
+                <p class="balance-lead"><em>Month-to-date spending for January 2017</em></p>
+                <h3 class="balance">$<span id="user-balance">0.00</span></h3>
+            </div>
+
+            <div class="col-md-4 col-md-offset-2">
+                <h3>Top Spending Categories</h3>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="/js/plugins.js"></script>
         <script src="/js/js.cookie.js"></script>
-        <script src="/js/demo.js"></script>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
-        <script src="https://momentjs.com/downloads/moment.js"></script>
-        <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
-        <script src="/js/d3/calendar.js"></script>
-        <script src="/js/d3/line.js"></script>
-        <script src="/js/d3/bars.js"></script>
     </body>
 </html>
