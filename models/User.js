@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   deviceToken: { type: String },
   goals: [{ type: ObjectId, ref: 'Goal' }],
-  stripeID: { type: String },
+  nessieID: { type: String },
   runningCost: { type: Number, default: 0 },
   donated: { type: Number, default: 0 },
   charges: { type: Number, default: 0 },
